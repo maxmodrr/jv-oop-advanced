@@ -1,5 +1,5 @@
 package core.basesyntax.interfaces;
 
-public interface Drawable extends AreaCalculable {
+public interface Drawable {
     void draw();
 }

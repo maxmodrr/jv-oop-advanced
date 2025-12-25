@@ -20,14 +20,14 @@ public abstract class Figure implements AreaCalculable, Drawable {
                 + " sq. units, "
                 + getDetails()
                 + ", color: "
-                + color);
+                + getColor().toLowerCase());
     }
 
     public abstract String getName();
 
     public abstract String getDetails();
 
-    public Colors getColor() {
-        return color;
+    public String getColor() {
+        return color.name();
     }
 }

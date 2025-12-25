@@ -1,13 +1,12 @@
 package core.basesyntax.figures;
 
-import core.basesyntax.enums.Colors;
 import core.basesyntax.interfaces.AreaCalculable;
 import core.basesyntax.interfaces.Drawable;
 
 public abstract class Figure implements AreaCalculable, Drawable {
-    private Colors color;
+    private String color;
 
-    protected Figure(Colors color) {
+    protected Figure(String color) {
         this.color = color;
     }
 
@@ -20,14 +19,11 @@ public abstract class Figure implements AreaCalculable, Drawable {
                 + " sq. units, "
                 + getDetails()
                 + ", color: "
-                + getColor().toLowerCase());
+                + color.toLowerCase());
     }
 
     public abstract String getName();
 
     public abstract String getDetails();
 
-    public String getColor() {
-        return color.name();
-    }
 }

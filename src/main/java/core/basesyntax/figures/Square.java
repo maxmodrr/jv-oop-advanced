@@ -1,11 +1,9 @@
 package core.basesyntax.figures;
 
-import core.basesyntax.enums.Colors;
-
 public class Square extends Figure {
     private final int side;
 
-    public Square(Colors color, int side) {
+    public Square(String color, int side) {
         super(color);
         this.side = side;
     }

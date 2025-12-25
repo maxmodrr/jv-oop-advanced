@@ -1,12 +1,10 @@
 package core.basesyntax.figures;
 
-import core.basesyntax.enums.Colors;
-
 public class Rectangle extends Figure {
     private final int firstLeg;
     private final int secondLeg;
 
-    public Rectangle(Colors color, int firstLeg, int secondLeg) {
+    public Rectangle(String color, int firstLeg, int secondLeg) {
         super(color);
         this.firstLeg = firstLeg;
         this.secondLeg = secondLeg;

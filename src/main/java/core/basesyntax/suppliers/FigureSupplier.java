@@ -11,49 +11,65 @@ import core.basesyntax.figures.Square;
 import java.util.Random;
 
 public class FigureSupplier {
+    private static final String WHITE_COLOR = Colors.WHITE.name();
+    private static final int MAX_VALUE = 100;
+    private static final int DEFAULT_RADIUS = 10;
+
     private final Random random = new Random();
     private final Figures[] figures = Figures.values();
     private final ColorSupplier colorSupplier = new ColorSupplier();
 
     public Figure getRandomFigure() {
         Figures figureName = figures[random.nextInt(figures.length)];
-        Colors randomColor = colorSupplier.getRandomColor();
+        String randomColor = colorSupplier.getRandomColor();
         Figure figure;
         switch (figureName) {
             case CIRCLE:
-                figure = new Circle(randomColor, getRandomNumber());
+                int radius = getRandomNumber();
+
+                figure = new Circle(randomColor, radius);
                 break;
             case ISOSCELES_TRAPEZOID:
+                int firstLeg = getRandomNumber();
+                int secondLeg = getRandomNumber();
+                int height = getRandomNumber();
+
                 figure = new IsoscelesTrapezoid(
                         randomColor,
-                        getRandomNumber(),
-                        getRandomNumber(),
-                        getRandomNumber());
+                        firstLeg,
+                        secondLeg,
+                        height);
                 break;
             case RECTANGLE:
+                int firstSide = getRandomNumber();
+                int secondSide = getRandomNumber();
+
                 figure = new Rectangle(
                         randomColor,
-                        getRandomNumber(),
-                        getRandomNumber());
+                        firstSide,
+                        secondSide);
                 break;
             case RIGHT_TRIANGLE:
+                int firstTriangleSide = getRandomNumber();
+                int secondTriangleSide = getRandomNumber();
                 figure = new RightTriangle(
                         randomColor,
-                        getRandomNumber(),
-                        getRandomNumber());
+                        firstTriangleSide,
+                        secondTriangleSide);
                 break;
             default:
-                figure = new Square(randomColor, getRandomNumber());
+                int squareSide = getRandomNumber();
+                figure = new Square(randomColor, squareSide);
         }
 
         return figure;
     }
 
     public Figure getDefaultFigure() {
-        return new Circle(Colors.WHITE, 10);
+        return new Circle(WHITE_COLOR, DEFAULT_RADIUS);
     }
 
     private int getRandomNumber() {
-        return random.nextInt(100);
+        return random.nextInt(MAX_VALUE);
     }
 }

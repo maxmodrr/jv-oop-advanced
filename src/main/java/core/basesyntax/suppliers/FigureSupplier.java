@@ -61,7 +61,7 @@ public class FigureSupplier {
                 int squareSide = getRandomNumber();
                 figure = new Square(randomColor, squareSide);
         }
-
+        
         return figure;
     }
 
